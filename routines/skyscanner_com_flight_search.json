@@ -1,0 +1,74 @@
+{
+  "name": "skyscanner_com_flight_search",
+  "description": "",
+  "params": [
+    {
+      "name": "from",
+      "description": "from IATA airport code",
+      "patches": [
+        {
+          "keypath": "url",
+          "start": 42,
+          "end": 45,
+          "transform": ""
+        }
+      ],
+      "default": "",
+      "kind": "str"
+    },
+    {
+      "name": "to",
+      "description": "to IATA airport code",
+      "patches": [
+        {
+          "keypath": "url",
+          "start": 46,
+          "end": 49,
+          "transform": ""
+        }
+      ],
+      "default": "",
+      "kind": "str"
+    },
+    {
+      "name": "startDate",
+      "description": "format %y%m%d",
+      "patches": [
+        {
+          "keypath": "url",
+          "start": 50,
+          "end": 56,
+          "transform": ""
+        }
+      ],
+      "default": "",
+      "kind": "str"
+    },
+    {
+      "name": "endDate",
+      "description": "format %y%m%d",
+      "patches": [
+        {
+          "keypath": "url",
+          "start": 57,
+          "end": 63,
+          "transform": ""
+        }
+      ],
+      "default": "",
+      "kind": "str"
+    }
+  ],
+  "url": "https://www.skyscanner.at/transport/fluge/hkg/hkt/261012/261020/?adultsv2=1&cabinclass=economy&childrenv2=&ref=home&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false",
+  "render": true,
+  "actions": [
+    {
+      "typ": "actionWaitForAndSelect",
+      "v0": "//*[contains(., 'Ergebnisse sortiert nach Bestes')]",
+      "v1": "60"
+    }
+  ],
+  "pagination": null,
+  "extraction": "skyscanner_com_flights",
+  "type": "routine"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "google_com_search_results",
+  "type": "extraction",
+  "description": "",
+  "domain": "",
+  "url": "https://www.google.com/",
+  "keyCount": 0,
+  "keyCoverage": 0.0,
+  "coverageScore": 0.0,
+  "extraction": {
+    "$xpath": "/html",
+    "query": {
+      "$xpath": "//*[@id='ti6dpd']"
+    },
+    "result_count": {
+      "$xpath": "//div[@class='XhWQv qd6zO ApHyTb']",
+      "$extract": "\\D*(\\d[,\\d]*) .*"
+    },
+    "ai": {
+      "$xpath": "//*[@class='mZJni Dn7Fzd']",
+      "$format": "md"
+    },
+    "results": {
+      "$xpath": "//div[contains(@class, 'MjjYud')]",
+      "title": {
+        "$xpath": "./div/div/div/div/div/div/span/a/h3[contains(@class, 'LC20lb MBeuO DKV0Md')]"
+      },
+      "url": {
+        "$xpath": "./div/div/div/div/div/div/span/a[contains(@class, 'zReHs')]/@href"
+      },
+      "site": {
+        "$xpath": "./div/div/div/div/div/div/span/a/div/div/div/div/span[contains(@class, 'VuuXrf')]"
+      },
+      "snippet": {
+        "$xpath": ".//div[contains(@data-snf, 'nke7rc')]"
+      },
+      "$list": true
+    },
+    "people_also_ask": {
+      "$xpath": ".//*[@jsname='yEVEwb']//span[contains(@class, 'CSkcDe')]",
+      "$list": true
+    },
+    "related_searches": {
+      "$xpath": "//*[@class='qR29te']",
+      "$list": true
+    }
+  }
+}

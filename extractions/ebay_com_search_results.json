@@ -1,0 +1,41 @@
+{
+  "name": "ebay_com_search_results",
+  "type": "extraction",
+  "description": "",
+  "domain": "",
+  "url": "https://www.ebay.com/sch/i.html?_nkw=iphone&_sacat=0&_from=R40&_trksid=m570.l1313",
+  "keyCount": 533,
+  "keyCoverage": 0.7861163227016885,
+  "coverageScore": 0.7857142857142857,
+  "extraction": {
+    "results": {
+      "$xpath": "//*[@id='srp-river-results']//*[@data-listingid]",
+      "$list": true,
+      "title": {
+        "$xpath": ".//*[@class='s-card__title']/*[contains(@class, 'primary')]"
+      },
+      "url": {
+        "$xpath": ".//a[@class='s-card__link']/@href",
+        "$extract": "([^?]+).*"
+      },
+      "price": {
+        "$xpath": ".//*[contains(@class, 's-card__price')]"
+      },
+      "rating": {
+        "$xpath": ".//*[@class='x-star-rating']",
+        "$extract": "([\\d\\.]+).*"
+      },
+      "ratingCount": {
+        "$xpath": ".//*[@class='s-card__reviews-count']",
+        "$extract": "\\(?([\\d\\.]+)\\)?.*"
+      },
+      "image": {
+        "$xpath": ".//*[@class='su-card-container__media']//img/@src"
+      },
+      "otherInfo": {
+        "$xpath": ".//*[@class='su-styled-text secondary large']",
+        "$list": true
+      }
+    }
+  }
+}

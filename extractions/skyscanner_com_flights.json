@@ -1,0 +1,60 @@
+{
+  "name": "skyscanner_com_flights",
+  "type": "extraction",
+  "description": "",
+  "domain": "",
+  "url": "https://www.skyscanner.at/transport/fluge/JFK/TYO/261201/261203/?adultsv2=1&cabinclass=economy&childrenv2=&ref=home&rtn=1&outboundaltsenabled=false&inboundaltsenabled=false&preferdirects=false",
+  "keyCount": 155,
+  "keyCoverage": 1.0,
+  "coverageScore": 1.0,
+  "extraction": {
+    "results": {
+      "$xpath": "//*[@data-testid='ticket']",
+      "currency": {
+        "$xpath": ".//*[@data-testid='price-main-container']",
+        "$extract": "[\\d,\\.]+ (.*)"
+      },
+      "price": {
+        "$xpath": ".//*[@data-testid='price-main-container']",
+        "$extract": "([\\d,\\.]+) .*"
+      },
+      "outboundStartTime": {
+        "$xpath": ".//*[@data-testid='route-partial-time']"
+      },
+      "outboundEndTime": {
+        "$xpath": "(.//*[@data-testid='route-partial-time'])[2]"
+      },
+      "outboundDuration": {
+        "$xpath": ".//*[@class='css-wx7923']/span"
+      },
+      "outboundConnections": {
+        "$xpath": "(.//*[@class='css-1h46fho'])[2]"
+      },
+      "outboundOrigin": {
+        "$xpath": "(.//*[@class='css-13euhv0']/span)[2]"
+      },
+      "outboundDestination": {
+        "$xpath": "(.//*[@class='css-v9qybj']/span)[2]"
+      },
+      "inboundStartTime": {
+        "$xpath": "(.//*[@data-testid='route-partial-time'])[3]"
+      },
+      "inboundEndTime": {
+        "$xpath": "(.//*[@data-testid='route-partial-time'])[4]"
+      },
+      "inboundDuration": {
+        "$xpath": "(.//*[@class='css-wx7923']/span)[2]"
+      },
+      "inboundOrigin": {
+        "$xpath": "(.//*[@class='css-13euhv0']/span)[4]"
+      },
+      "inboundDestination": {
+        "$xpath": "(.//*[@class='css-v9qybj']/span)[4]"
+      },
+      "carrier": {
+        "$xpath": ".//*[@data-testid='TicketBodyCarrierHeader']"
+      },
+      "$list": true
+    }
+  }
+}

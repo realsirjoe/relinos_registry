@@ -1,0 +1,37 @@
+{
+  "name": "youtube_com_search",
+  "description": "",
+  "params": [
+    {
+      "name": "search_term",
+      "description": "",
+      "patches": [
+        {
+          "keypath": "url",
+          "start": 45,
+          "end": -1,
+          "transform": "url_query_quote"
+        }
+      ],
+      "default": "",
+      "kind": "str"
+    }
+  ],
+  "url": "https://www.youtube.com/results?search_query=science+channel",
+  "render": true,
+  "actions": [
+    {
+      "typ": "actionExecuteScript",
+      "v0": "window.scrollTo(0, document.body.scrollHeight);",
+      "v1": ""
+    },
+    {
+      "typ": "actionSleep",
+      "v0": "1",
+      "v1": ""
+    }
+  ],
+  "pagination": null,
+  "extraction": "youtube_com_search_results",
+  "type": "routine"
+}

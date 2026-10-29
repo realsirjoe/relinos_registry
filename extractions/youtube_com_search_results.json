@@ -1,0 +1,73 @@
+{
+  "name": "youtube_com_search_results",
+  "type": "extraction",
+  "description": "",
+  "domain": "",
+  "url": "https://www.youtube.com/results?search_query=linux",
+  "keyCount": 194,
+  "keyCoverage": 0.9175257731958762,
+  "coverageScore": 0.9099264705882353,
+  "extraction": {
+    "videos": {
+      "$xpath": "//ytd-video-renderer",
+      "$list": true,
+      "title": {
+        "$xpath": ".//a[@id='video-title']"
+      },
+      "url": {
+        "$xpath": ".//a[@id='video-title']/@href",
+        "$extract": "([^&]+).*"
+      },
+      "views": {
+        "$xpath": ".//*[@class='inline-metadata-item style-scope ytd-video-meta-block']"
+      },
+      "postedAt": {
+        "$xpath": "(.//*[@class='inline-metadata-item style-scope ytd-video-meta-block'])[2]"
+      },
+      "channel": {
+        "$xpath": ".//*[contains(@class, 'ytd-channel-name')]//a"
+      },
+      "channelUrl": {
+        "$xpath": ".//*[contains(@class, 'ytd-channel-name')]//a/@href"
+      },
+      "snippet": {
+        "$xpath": ".//*[contains(@class, 'metadata-snippet-container')]"
+      },
+      "thumbnail": {
+        "$xpath": ".//*[@id='thumbnail']//img/@src"
+      }
+    },
+    "channels": {
+      "$xpath": "//ytd-channel-renderer",
+      "$list": true,
+      "image": {
+        "$xpath": ".//*[@id='avatar']//img/@src"
+      },
+      "channel": {
+        "$xpath": ".//yt-formatted-string[contains(@class, 'ytd-channel-name')]"
+      },
+      "channelUrl": {
+        "$xpath": ".//*[contains(@class, 'channel-link')]/@href"
+      },
+      "subscriberCount": {
+        "$xpath": ".//*[@id='video-count']"
+      },
+      "description": {
+        "$xpath": ".//*[@id='description']"
+      }
+    },
+    "shorts": {
+      "$xpath": "//ytm-shorts-lockup-view-model",
+      "$list": true,
+      "title": {
+        "$xpath": ".//a/@title"
+      },
+      "url": {
+        "$xpath": ".//a/@href"
+      },
+      "views": {
+        "$xpath": ".//*[contains(@class, 'shortsLockupViewModelHostMetadataSubhead')]"
+      }
+    }
+  }
+}

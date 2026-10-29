@@ -1,0 +1,37 @@
+{
+  "name": "google_com_maps_search_results",
+  "type": "extraction",
+  "description": "",
+  "domain": "",
+  "url": "www.google.com/maps/search/restaurants+new+york/@40.732807,-74.0347643,13z",
+  "keyCount": 43,
+  "keyCoverage": 0.6744186046511628,
+  "coverageScore": 0.0,
+  "extraction": {
+    "root": {
+      "$xpath": "/html",
+      "results": {
+        "$xpath": ".//*[@role='article']",
+        "title": {
+          "$xpath": "./*/@aria-label"
+        },
+        "website": {
+          "$xpath": ".//*[@data-value='Website']/@href"
+        },
+        "review": {
+          "$xpath": ".//*[@class='ZkP5Je']"
+        },
+        "phone": {
+          "$xpath": ".//*[contains(@class, 'UsdlK')]"
+        },
+        "url": {
+          "$xpath": ".//*[contains(@class, 'hfpxzc')]/@href"
+        },
+        "image": {
+          "$xpath": ".//div[@class='SpFAAb']//img/@src"
+        },
+        "$list": true
+      }
+    }
+  }
+}

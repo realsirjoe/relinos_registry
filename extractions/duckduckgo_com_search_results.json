@@ -1,0 +1,47 @@
+{
+  "name": "duckduckgo_com_search_results",
+  "type": "extraction",
+  "description": "",
+  "domain": "",
+  "url": "https://duckduckgo.com/?q=dog&ia=web",
+  "keyCount": 46,
+  "keyCoverage": 0.9565217391304348,
+  "coverageScore": 0.8571428571428571,
+  "extraction": {
+    "related_searches": {
+      "$xpath": "//*[@class='related-searches__item']",
+      "$extract": "(.*)​",
+      "$list": true
+    },
+    "llm_answer": {
+      "$xpath": "//*[@data-testid='duckassist-answer-content']",
+      "$format": "md"
+    },
+    "news": {
+      "$xpath": "//*[@data-layout='news']//li",
+      "title": {
+        "$xpath": ".//h3"
+      },
+      "url": {
+        "$xpath": ".//a/@href"
+      },
+      "ago": {
+        "$xpath": ".//*[@class='xQMDylUT463nhq33tgBP']"
+      },
+      "$list": true
+    },
+    "results": {
+      "$xpath": "//*[@data-testid='result']",
+      "url": {
+        "$xpath": ".//*[@data-testid='result-extras-url-link']/@href"
+      },
+      "title": {
+        "$xpath": ".//*[@data-testid='result-title-a']"
+      },
+      "description": {
+        "$xpath": ".//*[@data-result='snippet']"
+      },
+      "$list": true
+    }
+  }
+}

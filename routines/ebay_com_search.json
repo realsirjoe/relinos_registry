@@ -1,0 +1,26 @@
+{
+  "name": "ebay_com_search",
+  "description": "",
+  "params": [
+    {
+      "name": "search_term",
+      "description": "",
+      "patches": [
+        {
+          "keypath": "url",
+          "start": 37,
+          "end": 41,
+          "transform": "url_query_quote"
+        }
+      ],
+      "default": "",
+      "kind": "str"
+    }
+  ],
+  "url": "https://www.ebay.com/sch/i.html?_nkw=lego&_sacat=0&_from=R40&_trksid=m570.l1313",
+  "render": true,
+  "actions": [],
+  "pagination": null,
+  "extraction": "ebay_com_search_results",
+  "type": "routine"
+}

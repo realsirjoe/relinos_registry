@@ -1,0 +1,67 @@
+{
+  "name": "google_com_maps_search",
+  "description": "",
+  "params": [
+    {
+      "name": "search_term",
+      "description": "",
+      "patches": [
+        {
+          "keypath": "actions.1.v0",
+          "start": -1,
+          "end": -1,
+          "transform": ""
+        }
+      ],
+      "default": "",
+      "kind": "str"
+    }
+  ],
+  "url": "https://maps.google.com",
+  "render": true,
+  "actions": [
+    {
+      "typ": "actionWaitForAndSelect",
+      "v0": "//input[@name='q']",
+      "v1": "5"
+    },
+    {
+      "typ": "actionType",
+      "v0": "Restaurants Ried",
+      "v1": ""
+    },
+    {
+      "typ": "actionKeyboardEnter",
+      "v0": "",
+      "v1": ""
+    },
+    {
+      "typ": "actionSleep",
+      "v0": "3",
+      "v1": ""
+    },
+    {
+      "typ": "actionExecuteScript",
+      "v0": "document.querySelector('[role=\"feed\"]').scrollTop = document.querySelector('[role=\"feed\"]').scrollHeight;",
+      "v1": ""
+    },
+    {
+      "typ": "actionSleep",
+      "v0": "1",
+      "v1": ""
+    },
+    {
+      "typ": "actionExecuteScript",
+      "v0": "document.querySelector('[role=\"feed\"]').scrollTop = document.querySelector('[role=\"feed\"]').scrollHeight;",
+      "v1": ""
+    },
+    {
+      "typ": "actionSleep",
+      "v0": "2",
+      "v1": ""
+    }
+  ],
+  "pagination": null,
+  "extraction": "google_com_maps_search_results",
+  "type": "routine"
+}
