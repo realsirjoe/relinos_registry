@@ -1,7 +1,6 @@
 Example routines and extractions to use with [relinos](https://github.com/realsirjoe/relinos)
 
-Download the JSON files and import them using the **/import** API endpoint
-
+Copy a JSON file and put it in the body of the POST **/import** API endpoint
 
 <img src="https://www.google.com/s2/favicons?domain=google.com&sz=64" width="20" height="20" align="absmiddle"> **Google Search** | [Routine](./routines/google_com_search.json) | [Extraction](./extractions/google_com_search_results.json)
 
