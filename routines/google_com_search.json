@@ -62,7 +62,7 @@
   ],
   "pagination": {
     "nextPageXPath": "//*[@id='pnnext']",
-    "maxPages": 3,
+    "maxPages": "3",
     "clickDelaySeconds": 2
   },
   "extraction": "google_com_search_results",
