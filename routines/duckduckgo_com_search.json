@@ -1,32 +1,25 @@
 {
-  "name": "duckduckgo_com_search",
-  "description": "",
-  "params": [
-    {
-      "name": "search_term",
-      "description": "",
-      "patches": [
-        {
-          "keypath": "url",
-          "start": 26,
-          "end": -1,
-          "transform": "url_query_quote"
-        }
-      ],
-      "default": "",
-      "kind": "str"
-    }
-  ],
-  "url": "https://duckduckgo.com/?q=dog",
-  "render": true,
-  "actions": [
-    {
-      "typ": "actionSleep",
-      "v0": "1",
-      "v1": ""
-    }
-  ],
-  "pagination": null,
-  "extraction": "duckduckgo_com_search_results",
-  "type": "routine"
+	"name": "duckduckgo_com_search",
+	"description": "",
+	"params": [
+		{
+			"name": "search_term",
+			"description": "",
+			"default": "",
+			"kind": "str"
+		}
+	],
+	"url": "https://duckduckgo.com/?q=||search_term:url_query_quote||",
+	"render": true,
+	"actions": [
+		{
+			"typ": "actionSleep",
+			"v0": "1",
+			"v1": ""
+		}
+	],
+	"pagination": null,
+	"extraction": "duckduckgo_com_search_results",
+	"version": "0.3",
+	"type": "routine"
 }

@@ -1,70 +1,55 @@
 {
-  "name": "google_com_search",
-  "description": "",
-  "params": [
-    {
-      "name": "search_term",
-      "description": "",
-      "patches": [
-        {
-          "keypath": "actions.1.v0",
-          "start": -1,
-          "end": -1,
-          "transform": ""
-        }
-      ],
-      "default": "",
-      "kind": "str"
-    },
-    {
-      "name": "max_pages",
-      "description": "",
-      "patches": [
-        {
-          "keypath": "pagination.maxPages",
-          "start": -1,
-          "end": -1,
-          "transform": ""
-        }
-      ],
-      "default": "",
-      "kind": "int"
-    }
-  ],
-  "url": "https://www.google.com",
-  "render": true,
-  "actions": [
-    {
-      "typ": "actionWaitForAndSelect",
-      "v0": "//textarea[@name='q']",
-      "v1": "1"
-    },
-    {
-      "typ": "actionType",
-      "v0": "searchTerm",
-      "v1": ""
-    },
-    {
-      "typ": "actionSleep",
-      "v0": "1",
-      "v1": ""
-    },
-    {
-      "typ": "actionKeyboardEnter",
-      "v0": "",
-      "v1": ""
-    },
-    {
-      "typ": "actionSleep",
-      "v0": "2",
-      "v1": ""
-    }
-  ],
-  "pagination": {
-    "nextPageXPath": "//*[@id='pnnext']",
-    "maxPages": "3",
-    "clickDelaySeconds": 2
-  },
-  "extraction": "google_com_search_results",
-  "type": "routine"
+	"name": "google_com_search",
+	"description": "",
+	"params": [
+		{
+			"name": "search_term",
+			"description": "",
+			"default": "",
+			"kind": "str"
+		},
+		{
+			"name": "max_pages",
+			"description": "",
+			"default": "",
+			"kind": "int"
+		}
+	],
+	"url": "https://www.google.com",
+	"render": true,
+	"actions": [
+		{
+			"typ": "actionWaitForAndSelect",
+			"v0": "//textarea[@name='q']",
+			"v1": "1"
+		},
+		{
+			"typ": "actionType",
+			"v0": "||search_term||",
+			"v1": ""
+		},
+		{
+			"typ": "actionSleep",
+			"v0": "1",
+			"v1": ""
+		},
+		{
+			"typ": "actionKeyboardEnter",
+			"v0": "",
+			"v1": ""
+		},
+		{
+			"typ": "actionSleep",
+			"v0": "2",
+			"v1": ""
+		}
+	],
+	"pagination": {
+		"nextPageXPath": "//*[@id='pnnext']",
+		"maxPages": "||max_pages||",
+		"clickDelaySeconds": "2"
+	},
+	"extraction": "google_com_search_results",
+	"version": "0.3",
+	"type": "routine"
 }
