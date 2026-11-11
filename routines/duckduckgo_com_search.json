@@ -1,14 +1,13 @@
 {
 	"name": "duckduckgo_com_search",
 	"description": "",
-	"params": [
-		{
-			"name": "search_term",
+	"params": {
+		"search_term": {
 			"description": "",
 			"default": "",
 			"kind": "str"
 		}
-	],
+	},
 	"url": "https://duckduckgo.com/?q=||search_term:url_query_quote||",
 	"render": true,
 	"actions": [
@@ -20,6 +19,6 @@
 	],
 	"pagination": null,
 	"extraction": "duckduckgo_com_search_results",
-	"version": "0.3",
+	"version": "0.4",
 	"type": "routine"
 }

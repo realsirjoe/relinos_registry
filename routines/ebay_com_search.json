@@ -1,19 +1,18 @@
 {
 	"name": "ebay_com_search",
 	"description": "",
-	"params": [
-		{
-			"name": "search_term",
+	"params": {
+		"search_term": {
 			"description": "",
 			"default": "",
 			"kind": "str"
 		}
-	],
+	},
 	"url": "https://www.ebay.com/sch/i.html?_nkw=||search_term:url_query_quote||&_sacat=0&_from=R40&_trksid=m570.l1313",
 	"render": true,
 	"actions": [],
 	"pagination": null,
 	"extraction": "ebay_com_search_results",
-	"version": "0.3",
+	"version": "0.4",
 	"type": "routine"
 }

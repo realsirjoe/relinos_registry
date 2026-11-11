@@ -1,14 +1,13 @@
 {
 	"name": "google_com_maps_search",
 	"description": "",
-	"params": [
-		{
-			"name": "search_term",
+	"params": {
+		"search_term": {
 			"description": "",
 			"default": "",
 			"kind": "str"
 		}
-	],
+	},
 	"url": "https://maps.google.com",
 	"render": true,
 	"actions": [
@@ -55,6 +54,6 @@
 	],
 	"pagination": null,
 	"extraction": "google_com_map_search_results",
-	"version": "0.3",
+	"version": "0.4",
 	"type": "routine"
 }

@@ -1,32 +1,28 @@
 {
 	"name": "skyscanner_com_flight_search",
 	"description": "",
-	"params": [
-		{
-			"name": "from",
+	"params": {
+		"from": {
 			"description": "from IATA airport code",
 			"default": "",
 			"kind": "str"
 		},
-		{
-			"name": "to",
+		"to": {
 			"description": "to IATA airport code",
 			"default": "",
 			"kind": "str"
 		},
-		{
-			"name": "startDate",
+		"startDate": {
 			"description": "format %y%m%d",
 			"default": "",
 			"kind": "str"
 		},
-		{
-			"name": "endDate",
+		"endDate": {
 			"description": "format %y%m%d",
 			"default": "",
 			"kind": "str"
 		}
-	],
+	},
 	"url": "https://www.skyscanner.at/transport/fluge/||from||/||to||/||startDate||/||endDate||/?adultsv2=1&cabinclass=economy&childrenv2=&ref=home&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false",
 	"render": true,
 	"actions": [
@@ -38,6 +34,6 @@
 	],
 	"pagination": null,
 	"extraction": "skyscanner_flights",
-	"version": "0.3",
+	"version": "0.4",
 	"type": "routine"
 }
