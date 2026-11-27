@@ -1,0 +1,28 @@
+{
+	"name": "x_com_feed",
+	"description": "",
+	"params": {
+		"url": {
+			"description": "Any page with a list of tweets, like your feed or any profile page",
+			"default": "",
+			"kind": "str"
+		}
+	},
+	"url": "||url||",
+	"render": true,
+	"actions": [
+		{
+			"typ": "actionScroll",
+			"v0": "0.5",
+			"v1": ""
+		},
+		{
+			"typ": "actionSleep",
+			"v0": "2",
+			"v1": ""
+		}
+	],
+	"pagination": null,
+	"extraction": "x_com_feed_results",
+	"version": "0.4"
+}

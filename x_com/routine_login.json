@@ -1,0 +1,58 @@
+{
+	"name": "x_com_login",
+	"description": "",
+	"params": {
+		"email": {
+			"description": "",
+			"default": "",
+			"kind": "str"
+		},
+		"otpEmail": {
+			"description": "",
+			"default": "",
+			"kind": "str"
+		},
+		"otpEmailPassword": {
+			"description": "",
+			"default": "",
+			"kind": "str"
+		}
+	},
+	"url": "https://twitter.com",
+	"render": true,
+	"actions": [
+		{
+			"typ": "actionWaitForAndSelect",
+			"v0": "//*[@autocomplete='username webauthn']",
+			"v1": "10"
+		},
+		{
+			"typ": "actionType",
+			"v0": "||email||",
+			"v1": ""
+		},
+		{
+			"typ": "actionKeyboardEnter",
+			"v0": "",
+			"v1": ""
+		},
+		{
+			"typ": "actionWaitForAndSelect",
+			"v0": "//*[@autocomplete='one-time-code']",
+			"v1": "30"
+		},
+		{
+			"typ": "actionFillOTP",
+			"v0": "||otpEmail||",
+			"v1": "||otpEmailPassword||"
+		},
+		{
+			"typ": "actionWaitForAndSelect",
+			"v0": "//*[contains(@class, 'public-DraftStyleDefault-block')]",
+			"v1": "10"
+		}
+	],
+	"pagination": null,
+	"extraction": "",
+	"version": "0.4"
+}

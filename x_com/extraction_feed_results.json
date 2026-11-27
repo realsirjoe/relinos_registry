@@ -1,0 +1,44 @@
+{
+	"name": "x_com_feed_results",
+	"type": "extraction",
+	"description": "",
+	"domain": "",
+	"url": "https://x.com/notch",
+	"keyCount": 82,
+	"keyCoverage": 0.7804878048780488,
+	"coverageScore": 0.7777777777777778,
+	"extraction": {
+		"posts": {
+			"$xpath": "//*[@data-testid='tweet']",
+			"$list": true,
+			"author": {
+				"$xpath": ".//*[@data-testid='User-Name']"
+			},
+			"authorUrl": {
+				"$xpath": ".//*[@data-testid='User-Name']//a/@href"
+			},
+			"publishedAt": {
+				"$xpath": ".//time/@datetime"
+			},
+			"text": {
+				"$xpath": ".//*[@data-testid='tweetText']",
+				"$format": "md"
+			},
+			"commentCount": {
+				"$xpath": ".//*[@data-testid='reply']"
+			},
+			"retweetCount": {
+				"$xpath": ".//*[@data-testid='retweet']"
+			},
+			"likesCount": {
+				"$xpath": ".//*[@data-testid='like']"
+			},
+			"image": {
+				"$xpath": ".//*[@data-testid='card.wrapper']//img/@src"
+			},
+			"video": {
+				"$xpath": ".//*[@data-testid='videoComponent']"
+			}
+		}
+	}
+}
