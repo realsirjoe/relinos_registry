@@ -1,0 +1,39 @@
+{
+	"name": "airbnb_com_search",
+	"description": "",
+	"params": {
+		"location": {
+			"description": "",
+			"default": "",
+			"kind": "str"
+		},
+		"checkin_date": {
+			"description": "YYYY-mm-dd",
+			"default": "",
+			"kind": "date"
+		},
+		"checkout_date": {
+			"description": "YYYY-mm-dd",
+			"default": "",
+			"kind": "date"
+		},
+		"nr_people": {
+			"description": "",
+			"default": "1",
+			"kind": "int"
+		}
+	},
+	"url": "https://www.airbnb.com/s/||location:url_quote||/homes?refinement_paths%5B%5D=%2Fhomes&date_picker_type=calendar&checkin=||checkin_date:url_query_quote||&checkout=||checkout_date:url_query_quote||&adults=||nr_people:url_query_quote||&search_type=search_query",
+	"render": true,
+	"actions": [
+		{
+			"typ": "actionSleep",
+			"v0": "7",
+			"v1": ""
+		}
+	],
+	"pagination": null,
+	"extraction": "airbnb_com_search_results",
+	"version": "0.4",
+	"type": "routine"
+}

@@ -1,0 +1,48 @@
+{
+	"name": "airbnb_com_search_results",
+	"type": "extraction",
+	"description": "",
+	"domain": "",
+	"url": "https://www.airbnb.com/s/Vienna/homes?refinement_paths%5B%5D=%2Fhomes&date_picker_type=calendar&checkin=2026-12-09&checkout=2026-12-11&adults=1&search_type=search_query",
+	"keyCount": 217,
+	"keyCoverage": 1.0,
+	"coverageScore": 1.0,
+	"extraction": {
+		"results": {
+			"$xpath": "//*[@data-testid='card-container']",
+			"$list": true,
+			"title": {
+				"$xpath": ".//*[@data-testid='listing-card-title']"
+			},
+			"roomDescription": {
+				"$xpath": ".//*[@data-testid='listing-card-name']"
+			},
+			"priceTotal": {
+				"$xpath": ".//*[@data-testid='price-availability-row']",
+				"$extract": ".*?([\\d,\\.]+) [A-Z]{2,3} for(?:.*?)(?:originally .*)?"
+			},
+			"currency": {
+				"$xpath": ".//*[@data-testid='price-availability-row']",
+				"$extract": ".*?[\\d,\\.]+ ([A-Z]{2,3}) for(?:.*?)(?:originally .*)?"
+			},
+			"subtitle": {
+				"$xpath": "(.//*[@data-testid='listing-card-subtitle'])[2]"
+			},
+			"rating": {
+				"$xpath": ".//*[@class='r4a59j5 atm_h_1h6ojuz atm_9s_1txwivl atm_7l_hfv0h6 atm_84_1y44olf atm_mk_h2mmj6 atm_mj_glywfm dir dir-ltr']",
+				"$extract": "(.*?) out of.*"
+			},
+			"ratingCount": {
+				"$xpath": ".//*[@class='r4a59j5 atm_h_1h6ojuz atm_9s_1txwivl atm_7l_hfv0h6 atm_84_1y44olf atm_mk_h2mmj6 atm_mj_glywfm dir dir-ltr']",
+				"$extract": ".* rating, (.*?) reviews.*"
+			},
+			"url": {
+				"$xpath": "./a/@href"
+			},
+			"images": {
+				"$xpath": ".//img/@src",
+				"$extract": "(.*?)\\?.*"
+			}
+		}
+	}
+}
