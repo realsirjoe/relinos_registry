@@ -1,0 +1,29 @@
+{
+	"name": "linkedin_com_feed",
+	"description": "",
+	"params": {
+		"scrollHeights": {
+			"description": "Nr of window heights to scroll",
+			"default": "18",
+			"kind": "int"
+		}
+	},
+	"url": "https://www.linkedin.com/feed/foryou/",
+	"render": true,
+	"actions": [
+		{
+			"typ": "actionSleep",
+			"v0": "2",
+			"v1": ""
+		},
+		{
+			"typ": "actionScroll",
+			"v0": "||scrollHeights||",
+			"v1": "30"
+		}
+	],
+	"pagination": null,
+	"extraction": "linkedin_com_feed_results",
+	"version": "0.4",
+	"type": "routine"
+}

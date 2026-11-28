@@ -1,0 +1,44 @@
+{
+	"name": "linkedin_com_feed_results",
+	"type": "extraction",
+	"description": "",
+	"domain": "",
+	"url": "https://www.linkedin.com/feed/foryou/",
+	"keyCount": 185,
+	"keyCoverage": 0.8054054054054054,
+	"coverageScore": 0.7391304347826086,
+	"extraction": {
+		"posts": {
+			"$xpath": "//*[contains(@componentkey, 'MAIN_FEED_RELEVANCE') and @role='listitem']",
+			"$list": true,
+			"author": {
+				"$xpath": ".//*[contains(@aria-label, 'Profile')]"
+			},
+			"authorUrl": {
+				"$xpath": ".//a/@href"
+			},
+			"text": {
+				"$xpath": ".//*[@data-testid='expandable-text-box']",
+				"$format": "md"
+			},
+			"image": {
+				"$xpath": ".//img[contains(@alt, 'View image')]/@src"
+			},
+			"video": {
+				"$xpath": ".//video/@src"
+			},
+			"likesCount": {
+				"$xpath": ".//*[@id='thumbs-up-outline-feed-compact']/..",
+				"$extract": "​?(.*)"
+			},
+			"commentsCount": {
+				"$xpath": ".//*[@id='comment-outline-feed-compact']/..",
+				"$extract": "​?(.*)"
+			},
+			"repostsCount": {
+				"$xpath": ".//*[@id='arrows-swap-outline-feed-compact']/..",
+				"$extract": "​?(.*)"
+			}
+		}
+	}
+}

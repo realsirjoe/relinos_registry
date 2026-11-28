@@ -1,0 +1,79 @@
+{
+	"name": "linkedin_com_login",
+	"description": "Requires to setup TOTP: look into https://www.linkedin.com/help/linkedin/answer/a1381088/turn-two-step-verification-on-and-off and add an 'Authenticator App'. Obtain the totp uri which may be encoded into a qr code give to you upon creation",
+	"params": {
+		"email": {
+			"description": "",
+			"default": "",
+			"kind": "str"
+		},
+		"password": {
+			"description": "",
+			"default": "",
+			"kind": "str"
+		},
+		"totpUri": {
+			"description": "",
+			"default": "",
+			"kind": "str"
+		}
+	},
+	"url": "https://www.linkedin.com",
+	"render": true,
+	"actions": [
+		{
+			"typ": "actionWaitForAndSelect",
+			"v0": "(//a[contains(@href, 'login')])[1]",
+			"v1": "10"
+		},
+		{
+			"typ": "actionClick",
+			"v0": "",
+			"v1": ""
+		},
+		{
+			"typ": "actionWaitForAndSelect",
+			"v0": "//*[@autocomplete='username webauthn']",
+			"v1": "10"
+		},
+		{
+			"typ": "actionType",
+			"v0": "||email||",
+			"v1": ""
+		},
+		{
+			"typ": "actionWaitForAndSelect",
+			"v0": "(//*[@autocomplete='current-password'])[2]",
+			"v1": "10"
+		},
+		{
+			"typ": "actionType",
+			"v0": "||password||",
+			"v1": ""
+		},
+		{
+			"typ": "actionKeyboardEnter",
+			"v0": "",
+			"v1": ""
+		},
+		{
+			"typ": "actionWaitForAndSelect",
+			"v0": "//*[@autocomplete='one-time-code']",
+			"v1": "10"
+		},
+		{
+			"typ": "actionFillTOTP",
+			"v0": "||totpUri||",
+			"v1": ""
+		},
+		{
+			"typ": "actionSleep",
+			"v0": "2",
+			"v1": ""
+		}
+	],
+	"pagination": null,
+	"extraction": "",
+	"version": "0.4",
+	"type": "routine"
+}
