@@ -1,0 +1,24 @@
+{
+	"name": "reddit_com_view_post",
+	"description": "",
+	"params": {
+		"url": {
+			"description": "url to a post",
+			"default": "",
+			"kind": "str"
+		}
+	},
+	"url": "||url||",
+	"render": true,
+	"actions": [
+		{
+			"typ": "actionWaitForAndSelect",
+			"v0": "//shreddit-post",
+			"v1": "8"
+		}
+	],
+	"pagination": null,
+	"extraction": "reddit_com_post",
+	"version": "0.4",
+	"type": "routine"
+}

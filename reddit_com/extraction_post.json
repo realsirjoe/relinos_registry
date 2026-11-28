@@ -1,0 +1,83 @@
+{
+	"name": "reddit_com_post",
+	"type": "extraction",
+	"description": "",
+	"domain": "",
+	"url": "https://www.reddit.com/r/wallstreetbets/comments/l8rf4k/times_square_right_now/?solution=de793ada7770e0dcde793ada7770e0dc&js_challenge=1&jsc_token=2824be10929bdc604753c70a67a1c3313645a22a439b435f2514521740c8c3d8&jsc_orig_r=",
+	"keyCount": 215,
+	"keyCoverage": 0.7348837209302326,
+	"coverageScore": 0.8,
+	"extraction": {
+		"post": {
+			"$xpath": "//shreddit-post",
+			"subreddit": {
+				"$xpath": "./@subreddit-name"
+			},
+			"flair": {
+				"$xpath": ".//shreddit-post-flair"
+			},
+			"author": {
+				"$xpath": "./@author"
+			},
+			"authorIcon": {
+				"$xpath": ".//*[contains(@class, 'avatar')]//img/@src"
+			},
+			"title": {
+				"$xpath": "./@post-title"
+			},
+			"text": {
+				"$xpath": ".//shreddit-post-text-body",
+				"$format": "md"
+			},
+			"time": {
+				"$xpath": ".//time/@datetime"
+			},
+			"upvoteCount": {
+				"$xpath": "./@score"
+			},
+			"upvoteRatio": {
+				"$xpath": "./@upvote-ratio"
+			},
+			"commentCount": {
+				"$xpath": "./@comment-count"
+			},
+			"awardCount": {
+				"$xpath": "./@award-count"
+			},
+			"image": {
+				"$xpath": ".//img[@id='post-image']/@src | .//shreddit-player/@poster"
+			},
+			"video": {
+				"$xpath": ".//shreddit-media-ui/@preview"
+			}
+		},
+		"comments": {
+			"$list": true,
+			"$xpath": ".//shreddit-comment",
+			"id": {
+				"$xpath": "./@thingid"
+			},
+			"parentID": {
+				"$xpath": "./@parentid"
+			},
+			"author": {
+				"$xpath": "./@author"
+			},
+			"authorIcon": {
+				"$xpath": ".//*[@noun='comment_author_avatar']//img/@src | .//*[@noun='comment_author_avatar']//image/@href"
+			},
+			"text": {
+				"$xpath": ".//*[@slot='comment']"
+			},
+			"score": {
+				"$xpath": "./@score"
+			},
+			"time": {
+				"$xpath": ".//time/@datetime"
+			},
+			"image": {
+				"$xpath": ".//figure[@class='rte-media']//img/@src"
+			}
+		}
+	}
+}
